@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./myMap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Latitude and Longitude from Address</title>
+</head>
+<body>
+    <h1>Get Latitude and Longitude from Address</h1>
+    <form id="addressForm">
+        <label for="addressInput">Enter Address:</label>
+        <input type="text" id="addressInput" required>
+        <button type="submit">Get Coordinates</button>
+    </form>
+    <div id="coordinates" style="border: dashed;"></div>
+
+    <div class="provider">
+        <div class='provider-hero'>
+            <img src="C:\Users\hp\Desktop\Page Innovations\Handiwork\hw\src\Components\images\banner technicians.png" alt="cover" class='cover' />
+            <img src="C:\Users\hp\Desktop\Page Innovations\Handiwork\hw\src\Components\images\who woman.png" alt="dp" class='dp' />
+            <h4>Canny LTD</h4>
+        </div>
+
+        <div class="provider-details">
+            <h5>About</h5>
+
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, 
+                vero eius quasi porro voluptate libero, officiis, fugiat quaerat laboriosam natus 
+                culpa sint earum praesentium rem id ea. Necessitatibus, doloremque soluta?</p>
+            
+            <h5>Contact Information</h5>
+
+            <p> Lorem ipsum dolor sit amet consectetur</p>
+
+            <div class="cta">
+                <div class="number-wrapper"><span>070324</span> ****</div>
+
+                <a href="" class="call-btn"></a>
+            </div>
+
+            <iframe
+            class="my-map"
+            title="map"
+            frameBorder="0"
+            src="https://maps.google.com/maps?q=6.65494,3.32328&h1=es;&output=embed"
+            allowFullScreen
+            ></iframe>
+
+            <!-- const lat = 6.65494;
+            const  lng = 3.32328; -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('addressForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        var address = document.getElementById('addressInput').value;
+        
+        // Make a request to Google Maps Geocoding API
+        fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(address) + '&key=AIzaSyBL5p7ii1_G81f35B3lH4GKQKW46hHh16s')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            if (data.results.length > 0) {
+            var latitude = data.results[0].geometry.location.lat;
+            var longitude = data.results[0].geometry.location.lng;
+            document.getElementById('coordinates').innerText = 'Latitude: ' + latitude + ', Longitude: ' + longitude;
+            } else {
+            document.getElementById('coordinates').innerText = 'Could not find coordinates for the provided address.';
+            }
+        })
+        .catch(function(error) {
+            console.log('Error:', error);
+        });
+        });
+    </script>
+
+
+</body>
+<script src="./myMap.js"></script>
+</html>

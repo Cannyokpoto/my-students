@@ -1,0 +1,147 @@
+:root{
+    --energyRed: #FF2121;
+    --energyDarkRed: #540808;
+    --energyBlack: #000000;
+    --energyDarkBlue: #263640;
+    --energyGrey: #929A9F;
+    --energyLightGrey: #F5F8FA;
+    --energyWhite: #FFFFFF;
+    --boxShadow: 5px 5px 5px rgb(178, 180, 182);
+    --energyDarkGrey: #444444;
+    --anotherGrey: #848484;
+    --secondary: #212529;
+    --myGrey: #a3a2a2;
+    --energyWhite: #FFFFFF;
+    --boxShadow: 5px 5px 5px rgba(199, 192, 192, 0.3);
+}
+
+
+.provider{
+    border: dashed yellow;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.provider-hero{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.provider-hero::after{
+    content: '';
+    background-color: var(--energyBlack);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: .7;
+    z-index: 50;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.provider-hero .cover{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.provider-hero .dp{
+    width: 25%;
+    height: 50%;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    border-radius: 50%;
+    z-index: 70;
+}
+
+.provider-hero h4{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    color: var(--energyWhite);
+    font-size: 40px;
+    z-index: 70;
+}
+
+.provider-details{
+    border: dashed red;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.provider-details h5{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    border: solid 1px var(--energyGrey);
+    width: 60vw;
+    height: 70px;
+    box-shadow: var(--boxShadow);
+}
+
+.provider-details p{
+    width: 62vw;
+    font-size: 17px;
+    text-align: left;
+}
+
+
+.my-map{
+    width: 60vw;
+    height: 600px;
+    border-radius: 10px;
+}
+
+.cta{
+    height: 30px;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: dashed;
+}
+
+.cta .number-wrapper{
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cta .call-btn{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 4px;
+    font-size: 20px;
+    color: var(--energyWhite);
+}
+
+.cta .call-btn:hover{
+    background-color: #023b02;
+    transition: .5s all;
+}
